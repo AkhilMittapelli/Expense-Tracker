@@ -1,0 +1,111 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-family:"Inter";
+}
+* {
+    font-family: "Inter";
+}
+.main-content{
+    margin-left:290px;
+}
+.btn:focus, .btn:active{
+    outline:none !important;
+    box-shadow:none;
+}
+.no-a-decoration, .no-a-decoration:hover{
+    text-decoration:none;
+    color:black;
+}
+body {
+    margin-bottom: 60px;
+    background-color: #b0c4de;
+}
+.sidebar {
+    background-color: aquamarine;
+    border-right: 1px dashed rgba(75, 82, 85, 0.24);
+    padding: 10px 20px;
+}
+.e-btn-group.custom-rbt-group .e-btn {
+    width: 100%;
+}
+.widget{
+    border-radius:1rem;
+    background-color :beige;
+}
+/* Add these styles in site.css or a relevant CSS file */
+.widget-summary {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    text-align: center;
+}
+/* Add this CSS to center the widget */
+.widget-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    padding: 20px; /* Add padding for spacing */
+    margin: 10px; /* Add margin if needed for spacing */
+}
+
+.widget-summary-container {
+    display: flex;
+    justify-content: center; /* Center horizontally within the row */
+}
+
+.row.mb-4 {
+    margin-bottom: 2rem; /* Adjust margin as needed */
+}
+/* Common styling for widgets */
+.widget-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    padding: 20px; /* Add padding for spacing */
+    margin: 10px; /* Add margin for spacing */
+    min-height: 150px; /* Ensure each widget has a minimum height */
+}
+
+/* Income Widget */
+.income-widget {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+}
+
+    .income-widget i {
+        color: #28a745; /* Green icon */
+    }
+
+/* Expense Widget */
+.expense-widget {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+}
+
+    .expense-widget i {
+        color: #dc3545; /* Red icon */
+    }
+
+/* Balance Widget */
+.balance-widget {
+    background-color: #fff3cd; /* Light yellow background */
+    color: #856404; /* Dark yellow text */
+}
+
+    .balance-widget i {
+        color: #ffc107; /* Yellow icon */
+    }
+

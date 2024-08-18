@@ -1,0 +1,38 @@
+@model Expense_Tracker.Models.Transaction
+
+@using (Html.BeginForm("AddOrEdit", "Transaction", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+   
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Date)
+        <ejs-datepicker id="date" name="Date" value="@Model.Date" placeholder="Date" floatLabelType="Always"></ejs-datepicker>
+        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.CategoryId)
+        <ejs-dropdownlist id="ddlCategory" name="CategoryId" value="@Model.CategoryId" dataSource="@ViewBag.Categories" placeholder="Category" floatLabelType="Always" allowFiltering="true" ignoreAccent="true" filterType="Contains" popupHeight="220px">
+            <e-dropdownlist-fields value="CategoryId" text="TitleWithIcon"> </e-dropdownlist-fields>
+        </ejs-dropdownlist>
+        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Amount)
+        <ejs-numerictextbox id="numeric" name="Amount" value="@Model.Amount" placeholder="Amount" floatLabelType="Always" min="0" format="c0" type="text"></ejs-numerictextbox>
+        @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Note)
+        <ejs-textbox id="Note" name="Note" value="@Model.Note" placeholder="Remarks" showClearButton="true" floatLabelType="Always" multiline="true"></ejs-textbox>
+        @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <ejs-button id="submit" type="submit" content="Save" cssClass="e-success"></ejs-button>
+    </div>
+}

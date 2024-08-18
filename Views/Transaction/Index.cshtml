@@ -1,0 +1,57 @@
+@model IEnumerable<Expense_Tracker.Models.Transaction>
+
+@{
+    ViewData["Page Title"] = "Transactions";
+    ViewData["PageActionText"] = "+ New Transaction";
+    ViewData["PageActionUrl"] = "/Transaction/AddOrEdit";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Grid Section -->
+        <div class="col-md-7">
+            <ejs-grid id="Transactions" dataSource="@Model" gridLines="None"
+                      allowSorting="true" allowPaging="true">
+                <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
+                <e-grid-columns>
+                    <e-grid-column headerText="Category" field="CategoryWithIcon" textAlign="Left"></e-grid-column>
+                    <e-grid-column headerText="Date" field="Date" width="150px" textAlign="Center" format="{0:MM/dd/yyyy}"></e-grid-column>
+                    <e-grid-column headerText="Amount" field="FormatedAmount" width="220px" textAlign="Right"></e-grid-column>
+                    <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="200px" textAlign="Center"></e-grid-column>
+                </e-grid-columns>
+            </ejs-grid>
+        </div>
+        <div class="column-md-5">
+            <div class="widget h-100 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-money-bill-transfer fa-2xl">/<i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="actionColumnTemplate" type="text/x-template">
+    <div class="d-flex">
+        <!-- Edit Button -->
+        <a class="btn btn-primary d-flex align-items-center me-2" href="/Transaction/AddOrEdit/${TransactionId}"
+           style="padding: 6px 12px; border-radius: 4px; background-color: #007bff; color: #fff; font-size: 0.875rem; text-decoration: none;">
+            <i class="fas fa-pen me-1"></i>
+            <span>Edit</span>
+        </a>
+        <!-- Delete Button -->
+        <form action="/Transaction/Delete/${TransactionId}" method="post" style="margin-bottom: 0;">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm d-flex align-items-center"
+                    onclick="return confirmDelete()"
+                    style="padding: 6px 12px; border-radius: 4px; background-color: #dc3545; color: #fff; font-size: 0.875rem; border: none;">
+                <i class="fas fa-trash-alt me-1"></i>
+                <span>Delete</span>
+            </button>
+        </form>
+    </div>
+</script>
+
+@section Scripts {
+    <script>function confirmDelete() {
+            return confirm('Are you sure you want to delete this Transaction?');
+        }</script>
+}
